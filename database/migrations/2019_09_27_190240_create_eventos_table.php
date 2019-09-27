@@ -17,8 +17,8 @@ class CreateEventosTable extends Migration
             $table->bigIncrements('id');
             $table->string('nome');
             $table->string('descricao');
-            $table->string('avaliacao');
-            $table->string('visitas');
+            $table->float('avaliacao');
+            $table->integer('visitas');
             $table->string('hash');
             $table->timestamps();
         });

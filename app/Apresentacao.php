@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Apresentacao extends Model
 {
     protected $fillable = [
-        
+        'hora'
     ];
 }

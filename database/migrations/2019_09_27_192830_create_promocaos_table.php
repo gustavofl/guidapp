@@ -16,8 +16,8 @@ class CreatePromocaosTable extends Migration
         Schema::create('promocaos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('texto');
-            $table->string('dia_semana');
-            $table->string('mes');
+            $table->integer('dia_semana');
+            $table->integer('mes');
             $table->date('data_inicial');
             $table->date('data_final');
             $table->timestamps();
