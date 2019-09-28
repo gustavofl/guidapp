@@ -19,6 +19,7 @@ class CreateEventoUnicosTable extends Migration
             $table->double('longitude');
             $table->time('data');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

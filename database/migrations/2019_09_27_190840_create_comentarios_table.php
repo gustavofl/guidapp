@@ -18,6 +18,7 @@ class CreateComentariosTable extends Migration
             $table->string('texto');
             $table->boolean('lido')->default(false);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -21,6 +21,7 @@ class CreateIngressosTable extends Migration
             $table->float('desconto')->nullable()->default(0);
             $table->date('dt_fim_promocao')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

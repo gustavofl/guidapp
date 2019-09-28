@@ -17,6 +17,7 @@ class CreateFestivalsTable extends Migration
             $table->bigIncrements('id');
             $table->string('cidade');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

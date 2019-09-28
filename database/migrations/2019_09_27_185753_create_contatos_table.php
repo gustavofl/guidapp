@@ -17,6 +17,7 @@ class CreateContatosTable extends Migration
             $table->bigIncrements('id');
             $table->string('texto');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -20,6 +20,7 @@ class CreateImpulsionamentosTable extends Migration
             $table->float('preco_dia');
             $table->date('data_compra');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

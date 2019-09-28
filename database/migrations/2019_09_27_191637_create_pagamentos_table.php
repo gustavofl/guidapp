@@ -19,6 +19,7 @@ class CreatePagamentosTable extends Migration
             $table->date('data_hora');
             $table->string('id_pag_paypal');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

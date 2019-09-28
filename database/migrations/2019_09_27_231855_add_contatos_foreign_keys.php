@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateImagemsTable extends Migration
+class AddContatosForeignKeys extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateImagemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('imagems', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('nome');
-            $table->timestamps();
-            $table->softDeletes();
+        Schema::table('contatos', function (Blueprint $table) {
+            $table->unsignedBigInteger('atracao_id');
+            $table->foreign('atracao_id')->references('id')->on('atracaos');
         });
     }
 
@@ -28,6 +26,8 @@ class CreateImagemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('imagems');
+        Schema::table('contatos', function (Blueprint $table) {
+            $table->dropColumn('atracao_id');
+        });
     }
 }

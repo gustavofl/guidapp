@@ -22,6 +22,7 @@ class CreateEstabelecimentosTable extends Migration
             $table->string('telefone');
             $table->string('cidade');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

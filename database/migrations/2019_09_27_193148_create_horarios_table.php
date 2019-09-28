@@ -19,6 +19,7 @@ class CreateHorariosTable extends Migration
             $table->time('fechamento');
             $table->string('dia_semana');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

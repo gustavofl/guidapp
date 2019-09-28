@@ -21,6 +21,7 @@ class CreateEventosTable extends Migration
             $table->integer('visitas');
             $table->string('hash');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -16,8 +16,9 @@ class CreateAtracaosTable extends Migration
         Schema::create('atracaos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nome');
-            $table->string('descricao');
+            $table->string('descricao')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

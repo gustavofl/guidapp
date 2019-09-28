@@ -19,6 +19,7 @@ class CreatePratosTable extends Migration
             $table->string('descricao');
             $table->float('preco');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

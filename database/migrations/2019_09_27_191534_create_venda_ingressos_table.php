@@ -19,6 +19,7 @@ class CreateVendaIngressosTable extends Migration
             $table->boolean('usado');
             $table->boolean('validado');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

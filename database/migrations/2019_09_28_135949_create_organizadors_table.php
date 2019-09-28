@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePromocaosTable extends Migration
+class CreateOrganizadorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,12 @@ class CreatePromocaosTable extends Migration
      */
     public function up()
     {
-        Schema::create('promocaos', function (Blueprint $table) {
+        Schema::create('organizadors', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('texto')->nullable();
-            $table->integer('dia_semana');
-            $table->integer('mes');
-            $table->date('data_inicial');
-            $table->date('data_final');
+            $table->string('cpf');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -32,6 +29,6 @@ class CreatePromocaosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('promocaos');
+        Schema::dropIfExists('organizadors');
     }
 }

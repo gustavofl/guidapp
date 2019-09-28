@@ -17,6 +17,7 @@ class CreateApresentacaosTable extends Migration
             $table->bigIncrements('id');
             $table->date('hora');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
