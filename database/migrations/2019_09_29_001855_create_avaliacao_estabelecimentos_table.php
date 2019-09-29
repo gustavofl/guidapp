@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddHorariosForeignKeys extends Migration
+class CreateAvaliacaoEstabelecimentosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,14 @@ class AddHorariosForeignKeys extends Migration
      */
     public function up()
     {
-        Schema::table('horarios', function (Blueprint $table) {
+        Schema::create('avaliacao_estabelecimentos', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('estabelecimento_id');
+            $table->unsignedBigInteger('user_id');
+            $table->float('avaliacao');
+            $table->timestamps();
             $table->foreign('estabelecimento_id')->references('id')->on('estabelecimentos');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -26,8 +31,6 @@ class AddHorariosForeignKeys extends Migration
      */
     public function down()
     {
-        Schema::table('horarios', function (Blueprint $table) {
-            $table->dropColumn('estabelecimento_id');
-        });
+        Schema::dropIfExists('avaliacao_estabelecimentos');
     }
 }
