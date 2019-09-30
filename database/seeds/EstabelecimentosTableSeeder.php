@@ -11,13 +11,13 @@ class EstabelecimentosTableSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\Estabelecimento', 10)
-            ->create()
-            ->each(function ($estabelecimentos) {
-                $estabelecimentos->prato()->createMany(
-                    factory(App\Prato::class, rand(0,15))->make()->toArray()
+        factory('App\Estabelecimento', 30)
+            ->create();
+        
+            /* ->each(function ($estabelecimento){
+                $estabelecimento->evento()->createMany(
+                    factory(App\Evento::class, rand(0,6))->make()->toArray()
                 );
-            });
-            
+            }) */
     }
 }

@@ -10,6 +10,8 @@ $factory->define(Impulsionamento::class, function (Faker $faker) {
         'data_inicial' => now(),
         'data_final' => $faker->dateTimeThisYear,
         'preco_dia' => $faker->numberBetween(2,8),
-        'data_compra' => $faker->dateTimeThisYear
+        'data_compra' => $faker->dateTimeThisYear,
+        'evento_id' => $faker->numberBetween(1,15),
+        'pagamento_id' => $faker->numberBetween(1,15)
     ];
 });

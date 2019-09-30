@@ -7,8 +7,11 @@ use Faker\Generator as Faker;
 
 $factory->define(VendaIngresso::class, function (Faker $faker) {
     return [
-        'hash' => $faker->hash,
+        'hash' => $faker->text,
         'usado' => $faker->boolean,
-        'validado' => $faker->boolean
+        'validado' => $faker->boolean,
+        'ingresso_id' => $faker->numberBetween(1,15),
+        'pagamento_id' => $faker->numberBetween(1,15),
+        'user_id' => $faker->numberBetween(1,15)
     ];
 });

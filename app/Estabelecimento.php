@@ -38,15 +38,11 @@ class Estabelecimento extends Model
         return $this->hasMany(Avaliacao_estabelecimento::class);
     }
 
-    public function usuario(){
-        return $this->hasMany(User::class);
-    }
-
     public function organizador(){
         return $this->belongsToMany(Organizador::class);
     }
 
     public function comentario(){
-        return $this->belongsToMany(Comentario::class);
+        return $this->hasMany(Comentario::class);
     }
 }

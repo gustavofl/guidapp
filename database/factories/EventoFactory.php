@@ -9,8 +9,10 @@ $factory->define(Evento::class, function (Faker $faker) {
     return [
         'nome' => $faker->name,
         'descricao' => $faker->text,
-        'avaliacao' => $faker->numberBetween(0,5),
+        'avaliacao' => $faker->numberBetween(1,5),
         'visitas' => $faker->numberBetween(0,10000),
-        'hash' => $faker->hash
+        'hash' => $faker->text,
+        'estabelecimento_id' => $faker->numberBetween(1,15),
+        'organizador_id' => $faker->numberBetween(1,15)
     ];
 });

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ingresso extends Model
 {
-    private $fillable = [
+    protected $fillable = [
         'descricao', 'preco', 'quantidade', 'desconto', 'dt_fim_promocao'
     ];
 

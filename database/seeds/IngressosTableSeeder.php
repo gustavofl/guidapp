@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class ContatosTableSeeder extends Seeder
+class IngressosTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +11,6 @@ class ContatosTableSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\Contato', 30)->create();
+        factory(App\Ingresso::class, 30)->create();
     }
 }

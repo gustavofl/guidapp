@@ -45,16 +45,8 @@ class User extends Authenticatable
         return $this->hasMany(Avaliacao_estabelecimento::class);
     }
 
-    public function estabelecimento(){
-        return $this->belongsToMany(Comentario::class);
-    }
-
     public function comentario(){
         return $this->hasMany(Comentario::class);
-    }
-
-    public function evento(){
-        return $this->belongsToMany(Evento::class);
     }
 
     public function avaliacaoEvento(){

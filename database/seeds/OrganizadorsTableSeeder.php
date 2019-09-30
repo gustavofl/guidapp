@@ -11,6 +11,6 @@ class OrganizadorsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\Organizador', 10)->create();
+        factory(App\Organizador::class, 30)->create();
     }
 }

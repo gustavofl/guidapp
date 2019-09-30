@@ -49,8 +49,4 @@ class Evento extends Model
     public function festival(){
         return $this->hasMany(Festival::class);
     }
-
-    public function usuario(){
-        return $this->hasMany(User::class);
-    }
 }

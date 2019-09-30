@@ -14,8 +14,8 @@ class AddApresentacaosForeignKeys extends Migration
     public function up()
     {
         Schema::table('apresentacaos', function (Blueprint $table) {
-            $table->unsignedBigInteger('atracao_id');
-            $table->bigInteger('evento_unico_id')->unsigned();
+            $table->unsignedBigInteger('atracao_id')->nullable();
+            $table->unsignedBigInteger('evento_unico_id')->nullable();
             $table->foreign('atracao_id')->references('id')->on('atracaos');
             $table->foreign('evento_unico_id')->references('id')->on('evento_unicos');
         });
