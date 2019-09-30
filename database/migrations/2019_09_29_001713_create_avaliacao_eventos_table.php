@@ -21,6 +21,7 @@ class CreateAvaliacaoEventosTable extends Migration
             $table->timestamps();
             $table->foreign('evento_id')->references('id')->on('eventos');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->softDeletes();
         });
     }
 

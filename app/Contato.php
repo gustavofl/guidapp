@@ -9,4 +9,8 @@ class Contato extends Model
     protected $fillable = [
         'texto'
     ];
+
+    public function atracao(){
+        return $this->belongsTo(Atracao::class);
+    }
 }

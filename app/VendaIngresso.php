@@ -9,4 +9,16 @@ class VendaIngresso extends Model
     private $fillable = [
         'hash', 'usado', 'validado'
     ];
+
+    public function ingresso(){
+        return $this->hasOne(Ingresso::class);
+    }
+
+    public function pagamento(){
+        return $this->hasMany(Pagamento::class);
+    }
+
+    public function usuario(){
+        return $this->belongsTo(User::class);
+    }
 }

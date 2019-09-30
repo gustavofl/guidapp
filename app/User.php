@@ -36,4 +36,40 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function imagem(){
+        return $this->hasOne(Imagem::class);
+    }
+
+    public function avaliacaoEstabelecimento(){
+        return $this->hasMany(Avaliacao_estabelecimento::class);
+    }
+
+    public function estabelecimento(){
+        return $this->belongsToMany(Comentario::class);
+    }
+
+    public function comentario(){
+        return $this->hasMany(Comentario::class);
+    }
+
+    public function evento(){
+        return $this->belongsToMany(Evento::class);
+    }
+
+    public function avaliacaoEvento(){
+        return $this->hasMany(Avaliacao_evento::class);
+    }
+
+    public function organizador(){
+        return $this->hasOne(Organizador::class);
+    }
+
+    public function vendaIngresso(){
+        return $this->hasMany(VendaIngresso::class);
+    }
+
+    public function pagamento(){
+        return $this->hasMany(Pagamento::class);
+    }
 }

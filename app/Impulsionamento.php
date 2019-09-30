@@ -9,4 +9,12 @@ class Impulsionamento extends Model
     protected $fillable = [
         'data_inicial', 'data_final', 'preco_dia', 'data_compra'
     ];
+
+    public function evento(){
+        return $this->belongsTo(Evento::class);
+    }
+
+    public function pagamento(){
+        return $this->hasOne(Pagamento::class);
+    }
 }
