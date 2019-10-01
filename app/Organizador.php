@@ -3,11 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Organizador extends Model
 {
+    use SoftDeletes;
     protected $fillable = [
-        'cpf', 'user_id'
+        'cpf'
     ];
 
     public function evento(){

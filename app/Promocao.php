@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Promocao extends Model
 {
+    use SoftDeletes;
     protected $fillable = [
         'texto', 'dia_semana', 'mes', 'data_inicial', 'data_final'
     ];
