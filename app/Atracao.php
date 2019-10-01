@@ -25,4 +25,8 @@ class Atracao extends Model
     public function imagem(){
         return $this->hasMany(Imagem::class);
     }
+
+    public function tag(){
+        return $this->hasMany(Tag::class);
+    }
 }

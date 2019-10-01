@@ -24,4 +24,9 @@ class Tag extends Model
         return $this->belongsToMany(Evento::class)
                     ->withPivot('evento_tag');
     }
+
+    public function atracao(){
+        return $this->belongsToMany(Atracao::class)
+                    ->withPivot('atracao_tag');
+    }
 }

@@ -20,6 +20,8 @@ class TagsTableSeeder extends Seeder
                 $tag->evento()->attach($evento->id);
                 $prato = factory(\App\Prato::class)->create();
                 $tag->prato()->attach($prato->id);
+                $atracao = factory(\App\Atracao::class)->create();
+                $tag->atracao()->attach($atracao->id);
             });
     }
 }
