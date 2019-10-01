@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEstabelecimentoOrganizadorTable extends Migration
+class AddEstabelecimentosForeignKeys extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateEstabelecimentoOrganizadorTable extends Migration
      */
     public function up()
     {
-        Schema::create('estabelecimento_organizador', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedBigInteger('estabelecimento_id');
+        Schema::table('estabelecimentos', function (Blueprint $table) {
             $table->unsignedBigInteger('organizador_id');
-            $table->foreign('estabelecimento_id')->references('id')->on('estabelecimentos');
             $table->foreign('organizador_id')->references('id')->on('organizadors');
-            $table->timestamps();
         });
     }
 
@@ -30,6 +26,8 @@ class CreateEstabelecimentoOrganizadorTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('estabelecimento_organizador');
+        Schema::table('estabelecimentos', function (Blueprint $table) {
+            $table->dropColumn('organizador_id');
+        });
     }
 }

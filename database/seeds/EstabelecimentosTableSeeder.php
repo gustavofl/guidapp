@@ -13,11 +13,5 @@ class EstabelecimentosTableSeeder extends Seeder
     {
         factory('App\Estabelecimento', 30)
             ->create();
-        
-            /* ->each(function ($estabelecimento){
-                $estabelecimento->evento()->createMany(
-                    factory(App\Evento::class, rand(0,6))->make()->toArray()
-                );
-            }) */
     }
 }

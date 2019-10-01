@@ -11,14 +11,17 @@ class Tag extends Model
     ];
 
     public function prato(){
-        return $this->belongsToMany(Prato::class);
+        return $this->belongsToMany(Prato::class)
+                    ->withPivot('prato_tag');
     }
 
     public function estabelecimento(){
-        return $this->belongsToMany(Estabelecimento::class);
+        return $this->belongsToMany(Estabelecimento::class)
+                    ->withPivot('estabelecimento_tag');
     }
 
     public function evento(){
-        return $this->belongsToMany(Evento::class);
+        return $this->belongsToMany(Evento::class)
+                    ->withPivot('evento_tag');
     }
 }

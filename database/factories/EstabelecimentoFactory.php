@@ -12,6 +12,7 @@ $factory->define(Estabelecimento::class, function (Faker $faker) {
         'longitude' => $faker->longitude,
         'descricao' => $faker->text(200),
         'telefone' => $faker->phoneNumber,
-        'cidade' => $faker->city
+        'cidade' => $faker->city,
+        'organizador_id' => $faker->numberBetween(1,15)
     ];
 });

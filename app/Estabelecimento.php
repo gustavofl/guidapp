@@ -39,7 +39,7 @@ class Estabelecimento extends Model
     }
 
     public function organizador(){
-        return $this->belongsToMany(Organizador::class);
+        return $this->belongsTo(Organizador::class);
     }
 
     public function comentario(){
