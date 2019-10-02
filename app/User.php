@@ -3,12 +3,14 @@
 namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
     use Notifiable;
+    use SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -16,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'surname', 'email', 'password',
     ];
 
     /**
@@ -36,4 +38,32 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function imagem(){
+        return $this->hasOne(Imagem::class);
+    }
+
+    public function avaliacaoEstabelecimento(){
+        return $this->hasMany(Avaliacao_estabelecimento::class);
+    }
+
+    public function comentario(){
+        return $this->hasMany(Comentario::class);
+    }
+
+    public function avaliacaoEvento(){
+        return $this->hasMany(Avaliacao_evento::class);
+    }
+
+    public function organizador(){
+        return $this->hasOne(Organizador::class);
+    }
+
+    public function vendaIngresso(){
+        return $this->hasMany(VendaIngresso::class);
+    }
+
+    public function pagamento(){
+        return $this->hasMany(Pagamento::class);
+    }
 }
