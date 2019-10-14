@@ -12,39 +12,69 @@ class Estabelecimento extends Model
         'nome', 'latitude', 'longitude', 'descricao', 'telefone', 'cidade'
     ];
 
-    public function evento(){
+    public static $rules = [
+        'nome' => 'required',
+        'latitude' => 'required',
+        'longitude' => 'required',
+        'descricao' => 'required',
+        'telefone' => 'required',
+        'cidade' => 'required',
+    ];
+
+    public static $messages = [
+        'required' => 'O campo :attribute é obrigatório',
+    ];
+
+    public function eventos(){
         return $this->hasMany(Evento::class);
     }
 
-    public function tag(){
+    public function tags(){
         return $this->hasMany(Tag::class);
     }
 
-    public function prato(){
+    public function pratos(){
         return $this->hasMany(Prato::class);
     }
 
-    public function promocao(){
+    public function promocaos(){
         return $this->hasMany(Promocao::class);
     }
 
-    public function imagem(){
+    public function imagems(){
         return $this->hasMany(Imagem::class);
     }
 
-    public function horario(){
+    public function horarios(){
         return $this->hasMany(Horario::class);
     }
 
-    public function avaliacao(){
-        return $this->hasMany(Avaliacao_estabelecimento::class);
+    public function avaliacaos(){
+        return $this->belongsToMany(User::class)->using(EstabelecimentoUser::class)->withPivot('avaliacao');
     }
 
     public function organizador(){
         return $this->belongsTo(User::class);
     }
 
-    public function comentario(){
+    public function comentarios(){
         return $this->hasMany(Comentario::class);
+    }
+
+    public function getAvaliacaoGeral(){
+        $qnt = $this->avaliacaos->count();
+        $soma = 0;
+
+        // var_dump($this->avaliacaos);
+
+        foreach ($this->avaliacaos as $avaliacao) {
+            $soma += $avaliacao->pivot->avaliacao;
+        }
+
+        if($qnt > 0) {
+            return $soma/$qnt;
+        }
+
+        return 0;
     }
 }

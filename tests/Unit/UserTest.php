@@ -12,7 +12,7 @@ use App\Validator\ValidationException;
 
 class UserTest extends TestCase
 {
-    public function testDadosCorreto()
+    public function testDadosCorretos()
     {
         $user = new User;
         $user = factory(\App\User::class)->make();
@@ -53,5 +53,26 @@ class UserTest extends TestCase
         $this->expectException(ValidationException::class);
         
         UserValidator::validate(array_merge($user->toArray(), ['password' => $user->password]));
+    }
+
+    public function testNaoOrganizador()
+    {
+        $user = new User;
+        $user = factory(\App\User::class)->make();
+        $user->cpf = null;
+
+        $this->assertFalse($user->ehOrganizador());
+    }
+
+    public function testTornarOrganizador()
+    {
+        $user = new User;
+        $user = factory(\App\User::class)->make();
+        $user->cpf = null;
+
+        $cpf = '12345678900';
+        $user->tornarOrganizador($cpf);
+
+        $this->assertTrue($user->ehOrganizador());
     }
 }

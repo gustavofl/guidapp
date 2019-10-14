@@ -55,15 +55,15 @@ class User extends Authenticatable
         return $this->hasOne(Imagem::class);
     }
 
-    public function avaliacaoEstabelecimento(){
-        return $this->hasMany(Avaliacao_estabelecimento::class);
+    public function avaliacaoEstabelecimentos(){
+        return $this->hasMany(Estabelecimento::class)->using(EstabelecimentoUser::class);
     }
 
-    public function comentario(){
+    public function comentarios(){
         return $this->hasMany(Comentario::class);
     }
 
-    public function avaliacaoEvento(){
+    public function avaliacaoEventos(){
         return $this->hasMany(Avaliacao_evento::class);
     }
 
@@ -71,15 +71,19 @@ class User extends Authenticatable
         return $this->hasOne(Organizador::class);
     }
 
-    public function vendaIngresso(){
+    public function compraIngressos(){
         return $this->hasMany(VendaIngresso::class);
     }
 
-    public function pagamento(){
+    public function pagamentos(){
         return $this->hasMany(Pagamento::class);
+    }
+    
+    public function ehOrganizador(){
+        return $this->cpf != null;
     }
 
     public function tornarOrganizador($cpf) {
-
+        $this->cpf = $cpf;
     }
 }

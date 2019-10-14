@@ -14,7 +14,7 @@ class UserValidator
 
         if(!$validator->errors()->isEmpty())
         {
-            throw new ValidationException($validator, "Erro ao validar funcionario");
+            throw new ValidationException($validator, "Erro ao validar Usuário");
         }
     }
 }

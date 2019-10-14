@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAvaliacaoEstabelecimentosTable extends Migration
+class CreateEstabelecimentoUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateAvaliacaoEstabelecimentosTable extends Migration
      */
     public function up()
     {
-        Schema::create('avaliacao_estabelecimentos', function (Blueprint $table) {
+        Schema::create('estabelecimento_user', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('estabelecimento_id');
             $table->unsignedBigInteger('user_id');
@@ -32,6 +32,6 @@ class CreateAvaliacaoEstabelecimentosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('avaliacao_estabelecimentos');
+        Schema::dropIfExists('estabelecimento_user');
     }
 }
