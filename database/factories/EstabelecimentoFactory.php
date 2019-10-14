@@ -13,6 +13,6 @@ $factory->define(Estabelecimento::class, function (Faker $faker) {
         'descricao' => $faker->text(200),
         'telefone' => $faker->phoneNumber,
         'cidade' => $faker->city,
-        'organizador_id' => $faker->numberBetween(1,15)
+        'user_id' => $faker->numberBetween(1,15)
     ];
 });

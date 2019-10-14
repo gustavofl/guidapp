@@ -14,8 +14,8 @@ class AddEstabelecimentosForeignKeys extends Migration
     public function up()
     {
         Schema::table('estabelecimentos', function (Blueprint $table) {
-            $table->unsignedBigInteger('organizador_id');
-            $table->foreign('organizador_id')->references('id')->on('organizadors');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -27,7 +27,7 @@ class AddEstabelecimentosForeignKeys extends Migration
     public function down()
     {
         Schema::table('estabelecimentos', function (Blueprint $table) {
-            $table->dropColumn('organizador_id');
+            $table->dropColumn('user_id');
         });
     }
 }
