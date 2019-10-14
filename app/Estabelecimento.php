@@ -41,7 +41,7 @@ class Estabelecimento extends Model
     }
 
     public function organizador(){
-        return $this->belongsTo(Organizador::class);
+        return $this->belongsTo(User::class);
     }
 
     public function comentario(){
