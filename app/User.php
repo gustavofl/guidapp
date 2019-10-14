@@ -39,6 +39,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public static $rules = [
+        'name' => 'required',
+        'surname' => 'required',
+        'email' => 'required|email|unique:users',
+        'password' => 'required|min:8',
+    ];
+
+    public static $messages = [
+        'required' => 'O campo :attribute é obrigatório',
+        'password:min' => 'A senha deve ter no mínimo 8 caracteres',
+    ];
+
     public function imagem(){
         return $this->hasOne(Imagem::class);
     }
