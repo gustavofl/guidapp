@@ -12,6 +12,17 @@ class Prato extends Model
         'nome', 'descricao', 'preco'
     ];
 
+    public static $rules = [
+        'nome' => 'required',
+        'descricao' => 'required',
+        'preco' => 'required|numeric|min:0',
+    ];
+
+    public static $messages = [
+        'required' => 'O campo :attribute é obrigatório',
+        'preco:numeric|min' => 'O preço deve ser um número positivo',
+    ];
+
     public function imagem(){
         return $this->hasOne(Imagem::class);
     }
