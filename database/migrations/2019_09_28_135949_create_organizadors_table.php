@@ -13,14 +13,14 @@ class CreateOrganizadorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('organizadors', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('cpf');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->timestamps();
-            $table->softDeletes();
-        });
+        // Schema::create('organizadors', function (Blueprint $table) {
+        //     $table->bigIncrements('id');
+        //     $table->string('cpf');
+        //     $table->unsignedBigInteger('user_id');
+        //     $table->foreign('user_id')->references('id')->on('users');
+        //     $table->timestamps();
+        //     $table->softDeletes();
+        // });
     }
 
     /**

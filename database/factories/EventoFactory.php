@@ -13,6 +13,6 @@ $factory->define(Evento::class, function (Faker $faker) {
         'visitas' => $faker->numberBetween(0,10000),
         'hash' => $faker->text,
         'estabelecimento_id' => $faker->numberBetween(1,15),
-        'organizador_id' => $faker->numberBetween(1,15)
+        'user_id' => $faker->numberBetween(1,15)
     ];
 });
