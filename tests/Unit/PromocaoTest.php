@@ -10,10 +10,6 @@ use App\Promocao;
 use App\Validator\PromocaoValidator;
 use App\Validator\ValidationException;
 
-protected $fillable = [
-    'texto', 'dia_semana', 'mes', 'data_inicial', 'data_final'
-];
-
 class PromocaoTest extends TestCase
 {
     public function testDadosCorretos()

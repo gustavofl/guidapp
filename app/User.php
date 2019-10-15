@@ -64,7 +64,7 @@ class User extends Authenticatable
     }
 
     public function avaliacaoEventos(){
-        return $this->hasMany(Avaliacao_evento::class);
+        return $this->hasMany(Evento::class)->using(EventoUser::class);
     }
 
     public function organizador(){

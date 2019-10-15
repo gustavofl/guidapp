@@ -12,11 +12,11 @@ class Evento extends Model
         'nome', 'descricao', 'avaliacao', 'visitas', 'hash'
     ];
 
-    public function imagem(){
+    public function imagems(){
         return $this->hasMany(Imagem::class);
     }
     
-    public function tag(){
+    public function tags(){
         return $this->hasMany(Tag::class);
     }
 
@@ -24,31 +24,48 @@ class Evento extends Model
         return $this->belongsTo(Estabelecimento::class);
     }
 
-    public function comentario(){
+    public function comentarios(){
         return $this->hasMany(Comentario::class);
     }
 
-    public function avaliacao(){
-        return $this->hasMany(Avaliacao_evento::class);
+    public function avaliacaos(){
+        return this->belongsToMany(User::class)->using(EventoUser::class)->withPivot('avaliacao');
     }
 
     public function organizador(){
         return $this->belongsTo(User::class);
     }
 
-    public function ingresso(){
+    public function ingressos(){
         return $this->hasMany(Ingresso::class);
     }
 
-    public function impulsionamento(){
+    public function impulsionamentos(){
         return $this->hasMany(Impulsionamento::class);
     }
 
-    public function eventoUnico(){
+    public function eventoUnicos(){
         return $this->hasMany(EventoUnico::class);
     }
 
-    public function festival(){
+    public function festivals(){
         return $this->hasMany(Festival::class);
+    }
+
+    public function getAvaliacaoGeral(){
+        $qnt = $this->avaliacaos->count();
+        $soma = 0;
+
+        // var_dump($this->avaliacaos);
+
+        foreach ($this->avaliacaos as $avaliacao) {
+            $soma += $avaliacao->pivot->avaliacao;
+        }
+
+        if($qnt > 0) {
+            return $soma/$qnt;
+        }
+
+        return 0;
     }
 }

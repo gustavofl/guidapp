@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAvaliacaoEventosTable extends Migration
+class CreateEventoUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateAvaliacaoEventosTable extends Migration
      */
     public function up()
     {
-        Schema::create('avaliacao_eventos', function (Blueprint $table) {
+        Schema::create('evento_user', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('evento_id');
             $table->unsignedBigInteger('user_id');
@@ -32,6 +32,6 @@ class CreateAvaliacaoEventosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('avaliacao_eventos');
+        Schema::dropIfExists('evento_user');
     }
 }
